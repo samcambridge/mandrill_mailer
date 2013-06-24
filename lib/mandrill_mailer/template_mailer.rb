@@ -229,7 +229,7 @@ module MandrillMailer
         "merge_vars" => mandrill_rcpt_args(args[:recipient_vars]),
         "tags" => args[:tags],
         "google_analytics_domains" => args[:google_analytics_domains],
-        "google_analytics_campaign" => args[:google_analytics_campaign]
+        "google_analytics_campaign" => args[:google_analytics_campaign],
         # "metadata" =>["..."],
         "attachments" =>[
           args[:attachments]
