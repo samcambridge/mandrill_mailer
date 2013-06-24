@@ -51,8 +51,9 @@
 #     a little like: '<div mc:edit="header">My email content</div>' You can insert content directly into
 #     these fields by passing a Hash {'header' => 'my email content'}
 
-# :headers - Extra headers to add to the message (currently only Reply-To and X-* headers are allowed) {"...": "..."}
-
+#   :attachments - A Hash containing 3 keys - content: a base64 encoded file
+#   contents, type: a file type and name: the file name
+#
 # :bcc - Add an email to bcc to
 
 # :tags - Array of Strings to tag the message with. Stats are
@@ -230,9 +231,9 @@ module MandrillMailer
         "google_analytics_domains" => args[:google_analytics_domains],
         "google_analytics_campaign" => args[:google_analytics_campaign]
         # "metadata" =>["..."],
-        # "attachments" =>[
-        #   {"type" => "example type", "name" => "example name", "content" => "example content"}
-        # ]
+        "attachments" =>[
+          args[:attachments]
+        ]
       }
 
       # return self so we can chain deliver after the method call, like a normal mailer.
